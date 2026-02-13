@@ -1,26 +1,38 @@
-# Job & Internship Platform
+# 💼 Job & Internship Platform
 
-A full-stack MERN (MongoDB, Express.js, React, Node.js) application designed to connect students with career opportunities. This platform allows recruiters to post jobs and manage companies, while students can browse, search, and apply for positions.
+A full-stack **MERN** (MongoDB, Express.js, React, Node.js) application designed to connect students with career opportunities. This platform provides a seamless interface for recruiters to manage listings and for students to track their career growth.
+
+## 📸 Project Gallery
+
+| Student Dashboard | Job Listings |
+| :---: | :---: |
+| <img src="https://github.com/user-attachments/assets/4b85f776-1494-48b7-a2f0-b94c42b47271" width="400" /> | <img src="https://github.com/user-attachments/assets/fede5423-ad45-4585-bc90-05ade4604b41" width="400" /> |
+
+---
 
 ## 🚀 Features
 
 ### For Job Seekers (Students)
 * **User Authentication:** Secure login/signup with role-based access (Student/Recruiter).
-* **Profile Management:** Update personal details, bio, skills, and upload resumes (PDF).
-* **Job Discovery:** Filter jobs by keywords, location, and category.
-* **Application Tracking:** View and track the status of all applied jobs in a dedicated dashboard.
+* **Profile Management:** Update personal details, bio, skills, and upload resumes (PDF) via Cloudinary.
+* **Job Discovery:** Real-time search and filter functionality by keywords and categories.
+* **Application Tracking:** A dedicated dashboard to monitor the status of all your applications.
 
 ### For Recruiters
-* **Company Branding:** Register and update company profiles with logos and descriptions.
-* **Job Management:** Post, edit, and manage job listings with specific requirements (Salary, Positions, Experience).
-* **Applicant Review:** View a list of students who have applied for specific jobs.
+* **Company Branding:** Register and manage company profiles with logos.
+* **Job Postings:** Create and edit job listings with specific requirements (Salary, Positions, Experience).
+* **Applicant Management:** View detailed profiles and resumes of students who applied.
+
+---
 
 ## 🛠️ Tech Stack
 
-* **Frontend:** React.js, Redux Toolkit, Tailwind CSS, Shadcn UI, Lucide React.
-* **Backend:** Node.js, Express.js, JWT (JSON Web Tokens), Cookie-parser.
-* **Database:** MongoDB Atlas (Mongoose ODM).
-* **File Storage:** Cloudinary (for profile pictures and resumes).
+* **Frontend:** React.js, Redux Toolkit, Tailwind CSS, Shadcn UI.
+* **Backend:** Node.js, Express.js, JWT, Cookie-parser.
+* **Database:** MongoDB Atlas (Mongoose).
+* **Storage:** Cloudinary (Resumes & Images).
+
+---
 
 ## 📦 Installation & Setup
 
@@ -28,37 +40,32 @@ A full-stack MERN (MongoDB, Express.js, React, Node.js) application designed to 
 ```bash
 git clone [https://github.com/your-username/job-internship-platform.git](https://github.com/your-username/job-internship-platform.git)
 cd job-internship-platform
-
+```
 ### 2. Backend Setup
-Navigate to the backend folder: cd backend
+cd backend
+npm install
 
-Install dependencies: npm install
-
-Create a .env file and add your credentials:
-
-Code snippet
+Create a .env file in the backend folder:
+```bash
 PORT=8000
 MONGO_URI=your_mongodb_atlas_uri
 SECRET_KEY=your_jwt_secret
 CLOUD_NAME=your_cloudinary_name
 API_KEY=your_cloudinary_api_key
 API_SECRET=your_cloudinary_api_secret
-Start the server: npm run dev
+```
+npm run dev
+
 
 ### 3. Frontend Setup
-Navigate to the frontend folder: cd ../frontend
+cd ../frontend
+npm install
+npm run dev
 
-Install dependencies: npm install
 
-Start the development server: npm run dev
+### 🌐 Deployment
+Frontend: Hosted on Netlify
+Backend: Hosted on Render
+Database: Hosted on MongoDB Atlas
 
-🌐 Deployment
-Frontend: Deployed on Netlify.
-
-Backend: Deployed on Render.
-
-Database: Hosted on MongoDB Atlas.
-
-<img width="1920" height="820" alt="Screenshot (220)" src="https://github.com/user-attachments/assets/4b85f776-1494-48b7-a2f0-b94c42b47271" />
-<img width="1920" height="822" alt="Screenshot (219)" src="https://github.com/user-attachments/assets/fede5423-ad45-4585-bc90-05ade4604b41" />
-
+[Live Project Link](https://job-and-internship-platform.netlify.app)
