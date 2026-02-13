@@ -4,9 +4,7 @@ A full-stack **MERN** (MongoDB, Express.js, React, Node.js) application designed
 
 ## 📸 Project Gallery
 
-| Student Dashboard | Job Listings |
-| :---: | :---: |
-| <img src="https://github.com/user-attachments/assets/4b85f776-1494-48b7-a2f0-b94c42b47271" width="400" /> | <img src="https://github.com/user-attachments/assets/fede5423-ad45-4585-bc90-05ade4604b41" width="400" /> |
+| <img src="https://github.com/user-attachments/assets/fede5423-ad45-4585-bc90-05ade4604b41" width="400" /> | <img src="https://github.com/user-attachments/assets/4b85f776-1494-48b7-a2f0-b94c42b47271" width="400" /> |
 
 ---
 
@@ -42,8 +40,10 @@ git clone [https://github.com/your-username/job-internship-platform.git](https:/
 cd job-internship-platform
 ```
 ### 2. Backend Setup
+```bash
 cd backend
 npm install
+```
 
 Create a .env file in the backend folder:
 ```bash
@@ -58,14 +58,15 @@ npm run dev
 
 
 ### 3. Frontend Setup
+```bash
 cd ../frontend
 npm install
 npm run dev
-
+```
 
 ### 🌐 Deployment
-Frontend: Hosted on Netlify
-Backend: Hosted on Render
-Database: Hosted on MongoDB Atlas
+* Frontend: Hosted on Netlify
+* Backend: Hosted on Render
+* Database: Hosted on MongoDB Atlas
 
 [Live Project Link](https://job-and-internship-platform.netlify.app)
