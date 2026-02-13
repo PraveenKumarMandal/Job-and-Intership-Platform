@@ -19,7 +19,12 @@ const isAuthenticated = async (req, res, next) => {
         req.id = decode.userId;
         next();
     } catch (error) {
+        // FIX: Ensure an error response is sent if the token is expired/invalid
         console.log(error);
+        return res.status(401).json({
+            message: "Session expired, please login again.",
+            success: false
+        });
     }
 }
 export default isAuthenticated;

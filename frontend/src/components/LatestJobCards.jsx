@@ -1,11 +1,14 @@
-import React from 'react'
+import PropTypes from 'prop-types' // FIX: Import PropTypes for validation
 import { Badge } from './ui/badge'
 import { useNavigate } from 'react-router-dom'
 
-const LatestJobCards = ({job}) => {
+const LatestJobCards = ({ job }) => {
     const navigate = useNavigate();
     return (
-        <div onClick={()=> navigate(`/description/${job._id}`)} className='p-5 rounded-md shadow-xl bg-white border border-gray-100 cursor-pointer'>
+        <div 
+            onClick={() => navigate(`/description/${job._id}`)} 
+            className='p-5 rounded-md shadow-xl bg-white border border-gray-100 cursor-pointer'
+        >
             <div>
                 <h1 className='font-medium text-lg'>{job?.company?.name}</h1>
                 <p className='text-sm text-gray-500'>India</p>
@@ -19,9 +22,23 @@ const LatestJobCards = ({job}) => {
                 <Badge className={'text-[#F83002] font-bold'} variant="ghost">{job?.jobType}</Badge>
                 <Badge className={'text-[#7209b7] font-bold'} variant="ghost">{job?.salary}LPA</Badge>
             </div>
-
         </div>
     )
 }
 
-export default LatestJobCards
+// FIX: Added Prop Validation to satisfy ESLint
+LatestJobCards.propTypes = {
+    job: PropTypes.shape({
+        _id: PropTypes.string.isRequired,
+        title: PropTypes.string,
+        description: PropTypes.string,
+        position: PropTypes.number,
+        jobType: PropTypes.string,
+        salary: PropTypes.number,
+        company: PropTypes.shape({
+            name: PropTypes.string
+        })
+    }).isRequired
+};
+
+export default LatestJobCards;

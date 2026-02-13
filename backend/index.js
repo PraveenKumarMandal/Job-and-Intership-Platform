@@ -16,7 +16,7 @@ const app = express();
 
 const corsOptions = {
     origin: ['http://localhost:5173', 'https://job-and-internship-platform.netlify.app'],
-    credentials:true
+    credentials:true,
 }
 
 app.use(cors(corsOptions));

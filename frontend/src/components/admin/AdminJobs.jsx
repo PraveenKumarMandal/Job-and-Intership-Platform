@@ -15,8 +15,10 @@ const AdminJobs = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    // FIX: Included dispatch in the dependency array to satisfy ESLint
     dispatch(setSearchJobByText(input));
-  }, [input]);
+  }, [input, dispatch]); 
+
   return (
     <div>
       <Navbar />
@@ -35,4 +37,4 @@ const AdminJobs = () => {
   )
 }
 
-export default AdminJobs
+export default AdminJobs;

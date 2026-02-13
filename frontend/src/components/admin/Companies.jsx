@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react' // FIX: Removed unused 'React'
 import Navbar from '../shared/Navbar'
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
@@ -14,9 +14,11 @@ const Companies = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    useEffect(()=>{
+    useEffect(() => {
+        // FIX: Included dispatch in the dependency array
         dispatch(setSearchCompanyByText(input));
-    },[input]);
+    }, [input, dispatch]); 
+
     return (
         <div>
             <Navbar />
@@ -29,10 +31,10 @@ const Companies = () => {
                     />
                     <Button onClick={() => navigate("/admin/companies/create")}>New Company</Button>
                 </div>
-                <CompaniesTable/>
+                <CompaniesTable />
             </div>
         </div>
     )
 }
 
-export default Companies
+export default Companies;

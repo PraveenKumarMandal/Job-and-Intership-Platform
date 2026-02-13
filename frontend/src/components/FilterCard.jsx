@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react' // FIX: Removed unused React
 import { RadioGroup, RadioGroupItem } from './ui/radio-group'
 import { Label } from './ui/label'
 import { useDispatch } from 'react-redux'
@@ -22,12 +22,16 @@ const fitlerData = [
 const FilterCard = () => {
     const [selectedValue, setSelectedValue] = useState('');
     const dispatch = useDispatch();
+
     const changeHandler = (value) => {
         setSelectedValue(value);
     }
-    useEffect(()=>{
+
+    useEffect(() => {
+        // FIX: Dependency array now includes dispatch
         dispatch(setSearchedQuery(selectedValue));
-    },[selectedValue]);
+    }, [selectedValue, dispatch]);
+
     return (
         <div className='w-full bg-white p-3 rounded-md'>
             <h1 className='font-bold text-lg'>Filter Jobs</h1>
@@ -35,13 +39,15 @@ const FilterCard = () => {
             <RadioGroup value={selectedValue} onValueChange={changeHandler}>
                 {
                     fitlerData.map((data, index) => (
-                        <div>
+                        // FIX: Added key prop to outer loop
+                        <div key={index}>
                             <h1 className='font-bold text-lg'>{data.fitlerType}</h1>
                             {
                                 data.array.map((item, idx) => {
                                     const itemId = `id${index}-${idx}`
                                     return (
-                                        <div className='flex items-center space-x-2 my-2'>
+                                        // FIX: Added key prop to inner loop
+                                        <div key={itemId} className='flex items-center space-x-2 my-2'>
                                             <RadioGroupItem value={item} id={itemId} />
                                             <Label htmlFor={itemId}>{item}</Label>
                                         </div>
@@ -56,4 +62,4 @@ const FilterCard = () => {
     )
 }
 
-export default FilterCard
+export default FilterCard;

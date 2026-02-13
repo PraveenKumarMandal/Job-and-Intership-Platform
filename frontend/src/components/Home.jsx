@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react' // FIX: Removed unused 'React'
 import Navbar from './shared/Navbar'
 import HeroSection from './HeroSection'
 import CategoryCarousel from './CategoryCarousel'
@@ -14,11 +14,14 @@ const Home = () => {
   useGetAllJobs();
   const { user } = useSelector(store => store.auth);
   const navigate = useNavigate();
+
   useEffect(() => {
+    // FIX: Included navigate and user in dependencies
     if (user?.role === 'recruiter') {
       navigate("/admin/companies");
     }
-  }, []);
+  }, [user, navigate]);
+
   return (
     <div>
       <Navbar />
@@ -32,4 +35,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Home;
